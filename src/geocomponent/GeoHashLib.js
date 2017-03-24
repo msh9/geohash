@@ -87,5 +87,8 @@ export class Point {
  * @returns {string} A geohash string
  */
 export function geohashFromLatLng(latitude, longitude, precision=12) {
+    if (precision < 1) {
+        throw new Error('Precision value must be 1 or greater');
+    }
 
 }
