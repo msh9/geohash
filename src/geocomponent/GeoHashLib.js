@@ -69,6 +69,14 @@ export class Point {
     getLongitude() {
         return this._longitude
     }
+
+    /**
+     * Calculates the 12 character geohash for this point
+     * @returns {string} The geohash for this point
+     */
+    geohash() {
+        return geohashFromLatLng(this._latitude, this._longitude);
+    }
 }
 
 /**

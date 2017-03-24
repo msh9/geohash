@@ -1,4 +1,4 @@
-import geohashLatLng from 'GeoHashLib.js';
+import { Point, geohashLatLng } from './GeoHashLib.js';
 
 describe('Convert to geohash from latitude and longitude', () => {
    test('Rejects precision less than 1', () => {
@@ -8,6 +8,17 @@ describe('Convert to geohash from latitude and longitude', () => {
    });
 
    test('Encode the first longitude and latitude bits correctly', () => {
-       expect(geohashLatLng(89, 91, 1)).toBe
-   })
+       expect(geohashLatLng(89, 91, 1)).toBe('y');
+   });
+
+   test('Encode the first 12 characters correctly', () => {
+       expect(geohashLatLng(-25.382708, -49.265506, 12)).toBe('6gkzwgjzn820');
+   });
+
+   describe('Point class based conversion', () => {
+        test('Encode using using a point', () => {
+             let point = new Point(-25.382708, -49.265506);
+             expect(point.geohash()).toBe('6gkzwgjzn820');
+        });
+   });
 });
