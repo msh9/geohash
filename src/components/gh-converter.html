@@ -1,7 +1,12 @@
 <link rel="import" href="../../bower_components/polymer/polymer-element.html">
 
-<dom-module id="converter">
+<dom-module id="gh-converter">
     <template>
+        <style>
+            :host {
+                display: block;
+            }
+        </style>
         <p>
             <label for="convert-to-system">Convert to or from:</label>
             <select id="convert-to-system">
@@ -24,17 +29,15 @@
         </p>
     </template>
     <script>
-        class Converter extends Polymer.Element {
-            static get is() { return 'converter'; }
-            static get properties() {
-                return {
-                    prop1: {
-                        type: String,
-                        value: 'converter'
-                    }
-                };
+        class GhConverter extends Polymer.Element {
+            static get is() {
+                return 'gh-converter';
+            }
+
+            constructor() {
+                super();
             }
         }
-        window.customElements.define(Converter.is, Converter);
+        window.customElements.define(GhConverter.is, GhConverter);
     </script>
 </dom-module>
