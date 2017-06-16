@@ -1,7 +1,0 @@
-{
-  "name": "geohash",
-  "short_name": "geohash",
-  "description": "Demostration of various georeference systems",
-  "start_url": "/",
-  "display": "standalone"
-}

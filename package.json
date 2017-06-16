@@ -1,8 +1,0 @@
-{
-  "devDependencies": {
-    "web-component-tester": "^6.0.0"
-  },
-  "dependencies": {
-    "georeference-js": "https://github.com/msh9/georeference-js.git#v1.0.1"
-  }
-}
