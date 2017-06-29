@@ -1,7 +1,5 @@
 'use strict';
-import * as m from 'mithril';
-import * as converter from './views/converter';
+import m from 'mithril';
+import {converterView} from './views/converter';
 
-m.route(document.body, '/converter', {
-  '/converter': converter,
-});
+m.mount(document.body, converterView);

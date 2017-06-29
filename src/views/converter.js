@@ -1,8 +1,8 @@
 'use strict';
-import * as m from 'mithril';
+import m from 'mithril';
 
-export default {
-  view: () => {
+export const converterView = {
+  view: function() {
     return m('.geo-converter', [
       m('form', [
         m('select', {autofocus: true}, [
