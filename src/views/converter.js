@@ -19,7 +19,7 @@ export const converterView = {
               min: -180,
               require: true,
               name: 'latitude',
-              placeholder: 0.0
+              placeholder: 0.0,
             }),
         ]),
         m('label', [
@@ -31,8 +31,15 @@ export const converterView = {
               min: -180,
               require: true,
               name: 'longitude',
-              placeholder: 0.0
+              placeholder: 0.0,
             }),
+        ]),
+        m('label', [
+          'Reference Code:',
+          m('input', {
+            type: 'text',
+            name: 'reference',
+          }),
         ]),
       ]),
     ]);
