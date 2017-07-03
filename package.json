@@ -12,6 +12,7 @@
     "build": "webpack -p"
   },
   "dependencies": {
+    "georeference-js": "https://github.com/msh9/georeference-js.git#1.0.1",
     "mithril": "^1.1.1"
   },
   "devDependencies": {
