@@ -1,15 +1,16 @@
 'use strict';
 import m from 'mithril';
+import 'converter';
 
 export const converterView = {
   view: function () {
     return m('.geo-converter', [
       m('form', [
-        m('select', {autofocus: true}, [
-          m('option', {value: 'geohash'}, 'GeoHash'),
-          m('option', {value: 'georef'}, 'GeoRef'),
-          m('option', {value: 'mhlocator'}, 'MH Locator'),
-        ]),
+        m('select', {autofocus: true},
+          converter.conversionTypes.map((type, name) => {
+              return m('option', {value: type}, name);
+          })
+        ),
         m('label', [
           'Latitude:',
           m('input',
