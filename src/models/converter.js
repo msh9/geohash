@@ -1,8 +1,8 @@
 'use strict';
 
-import geo from 'georeference-js';
+import * as geo from 'georeference-js';
 
-export const Converter = {
+const Converter = {
   conversionTypes: geo.referenceNames,
   convertToReference: function convertToRefernce(latitude,
                                                  longitude,
@@ -24,3 +24,5 @@ export const Converter = {
     }
   },
 };
+
+export {Converter as default};
