@@ -1,9 +1,5 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
-import './index.css';
+'use strict';
+import m from 'mithril';
+import {converterView} from './views/converter';
 
-ReactDOM.render(
-  <App />,
-  document.getElementById('root')
-);
+m.mount(document.body, converterView);
