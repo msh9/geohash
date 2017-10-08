@@ -1,10 +1,13 @@
 {
-    "extends": "google",
-    "env": {
-        "es6": true,
-        "browser": true
-    },
-    "parserOptions": {
-        "sourceType": "module"
-    }
+  "extends": "google",
+  "env": {
+    "es6": true,
+    "browser": true
+  },
+  "parserOptions": {
+    "sourceType": "module"
+  },
+  "rules": {
+    "max-len": ["warn", 140]
+  }
 }
