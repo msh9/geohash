@@ -8,10 +8,20 @@ export const converterView = {
       m('form', {
           onsubmit: function (e) {
             e.preventDefault();
-            converter.convertToReference();
+            converter.convert();
           },
         },
         [
+          m('select', {
+            onchange: m.withAttr('value', converter.setConversion),
+          }, [
+            m('option', {
+              value: 'toHash',
+            }, 'Convert To Hash'),
+            m('option', {
+              value: 'toLatLng',
+            }, 'Convert To Lat/Lng'),
+          ]),
           m('select', {
               autofocus: true,
               onchange: m.withAttr('value', converter.setType),
@@ -20,21 +30,30 @@ export const converterView = {
               return m('option', {value: entry[0]}, entry[1]);
             })
           ),
-          m('label', [
-            'Latitude:',
-            m('input',
-              {
-                type: 'number',
-                max: 180,
-                min: -180,
-                require: true,
-                name: 'latitude',
-                placeholder: 0.0,
-                oninput: m.withAttr('value', converter.setLatitude),
-                value: converter.latitude,
-              }),
-          ]),
-          m('label', [
+          m('label',
+            {
+              style: {
+                display: converter.conversionDirection === 'toHash' ? 'initial' : 'none',
+              }
+            }, [
+              'Latitude:',
+              m('input',
+                {
+                  type: 'number',
+                  max: 180,
+                  min: -180,
+                  require: true,
+                  name: 'latitude',
+                  placeholder: 0.0,
+                  oninput: m.withAttr('value', converter.setLatitude),
+                  value: converter.latitude,
+                }),
+            ]),
+          m('label', {
+              style: {
+                display: converter.conversionDirection === 'toHash' ? 'initial' : 'none',
+              }
+            },[
             'Longitude:',
             m('input',
               {
@@ -48,7 +67,11 @@ export const converterView = {
                 value: converter.longitude,
               }),
           ]),
-          m('label', [
+          m('label', {
+            style: {
+              display: converter.conversionDirection === 'toLatLng' ? 'initial' : 'none',
+            },
+          }, [
             'Reference Code:',
             m('input', {
               type: 'text',
@@ -58,7 +81,7 @@ export const converterView = {
           ]),
           m('input', {
             type: 'submit',
-          }, ['Get Reference']),
+          }, ['Convert']),
         ]),
     ]);
   },

@@ -7,6 +7,7 @@ const Converter = {
   longitude: 0.0,
   reference: '',
   type: '',
+  conversionDirection: 'toHash',
   conversionTypes: geo.referenceNames,
 
   setLatitude: function (latitude) {
@@ -17,6 +18,16 @@ const Converter = {
   },
   setType: function (type) {
     Converter.type = type;
+  },
+  setConversion: function (toFrom) {
+    Converter.conversionDirection = toFrom;
+  },
+  convert: function convert() {
+    if (Converter.toFrom === 'from') {
+      Converter.convertFromReference();
+    } else {
+      Converter.convertToReference();
+    }
   },
   convertToReference: function convertToRefernce() {
     if (!Number.isNaN(Converter.latitude) &&
